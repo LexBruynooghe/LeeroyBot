@@ -1,0 +1,15 @@
+.Board {
+    -fx-border-color: red;
+}
+
+.BoardTile {
+
+}
+
+.white {
+    -fx-fill: #dcd9ad;
+}
+
+.black {
+    -fx-fill: #a45d32;
+}
