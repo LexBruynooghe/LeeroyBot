@@ -6,5 +6,8 @@ module com.acheros.chess_ai {
     opens com.acheros.chess_ai to javafx.fxml;
     exports com.acheros.chess_ai;
     exports com.acheros.chess_ai.UIcomponents;
+    exports com.acheros.chess_ai.models;
     opens com.acheros.chess_ai.UIcomponents to javafx.fxml;
+    exports com.acheros.chess_ai.UIcomponents.pieces;
+    opens com.acheros.chess_ai.UIcomponents.pieces to javafx.fxml;
 }

@@ -2,14 +2,11 @@
     -fx-border-color: red;
 }
 
-.BoardTile {
-
-}
 
 .white {
-    -fx-fill: #dcd9ad;
+    -fx-background-color: #eed7b5;
 }
 
 .black {
-    -fx-fill: #a45d32;
+    -fx-background-color: #b48763;
 }
