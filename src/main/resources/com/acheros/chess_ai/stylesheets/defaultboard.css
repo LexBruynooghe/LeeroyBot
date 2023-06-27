@@ -2,6 +2,9 @@
     -fx-border-color: red;
 }
 
+.BoardTile {
+    /*-fx-border-color: lime;*/
+}
 
 .white {
     -fx-background-color: #eed7b5;
@@ -9,4 +12,12 @@
 
 .black {
     -fx-background-color: #b48763;
+}
+
+.white .hovered {
+    -fx-background-color: rgba(238, 215, 181, 0.5);
+}
+
+.black . hovered {
+    -fx-background-color: rgba(180, 135, 99, 0.5);
 }

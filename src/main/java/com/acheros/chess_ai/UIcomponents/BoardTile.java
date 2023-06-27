@@ -2,40 +2,34 @@ package com.acheros.chess_ai.UIcomponents;
 
 import com.acheros.chess_ai.UIcomponents.pieces.Piece;
 import com.acheros.chess_ai.models.BoardStateModel;
-import com.acheros.chess_ai.util.PieceUtil;
+import com.acheros.chess_ai.util.ImageContainer;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.beans.property.DoubleProperty;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-
-import java.io.Serializable;
 
 public class BoardTile extends StackPane implements InvalidationListener {
 
     private Piece piece;
-    private final ImageView imageView;
-    private final BoardStateModel model;
+    private final ImageContainer imageView;
+    private final BoardStateModel boardState;
     private final int index;
     private final Label indexLabel;
 
     public BoardTile(boolean white, int index, BoardStateModel model) {
+
         getStyleClass().addAll("BoardTile", white ? "white" : "black");
 
-        imageView = new ImageView();
-        imageView.fitWidthProperty().bind(widthProperty());
-        imageView.fitHeightProperty().bind(heightProperty());
+        imageView = new ImageContainer();
 
-        this.model = model;
+        this.boardState = model;
+        boardState.addListener(this);
+
         this.index = index;
 
         indexLabel = new Label(index + "");
@@ -49,12 +43,17 @@ public class BoardTile extends StackPane implements InvalidationListener {
         setOnDragOver(this::dragOver);
         setOnDragDropped(this::dragDropped);
         setOnDragDone(this::dragDone);
+        setOnDragEntered(this::dragEntered);
+        setOnDragExited(this::dragExited);
     }
+
+
+
 
     private static final DataFormat CUSTOM_PIECE = new DataFormat("custom/piece");
 
     private void dragDropped(DragEvent e) {
-        setPiece((Piece) e.getDragboard().getContent(CUSTOM_PIECE));
+        boardState.set(index,(Piece) e.getDragboard().getContent(CUSTOM_PIECE));
         e.setDropCompleted(true);
         e.consume();
     }
@@ -76,7 +75,7 @@ public class BoardTile extends StackPane implements InvalidationListener {
 
     private void dragDone(DragEvent e) {
         if (e.isAccepted()) {
-            setPiece(null);
+            boardState.set(index, null);
         }
         e.consume();
     }
@@ -89,11 +88,17 @@ public class BoardTile extends StackPane implements InvalidationListener {
         e.consume();
     }
 
+    private void dragEntered(DragEvent e) {
+        if (e.getGestureSource() != this && (piece == null || piece.isWhite() != ((Piece) e.getDragboard().getContent(CUSTOM_PIECE)).isWhite()) && e.getDragboard().hasContent(CUSTOM_PIECE)) {
 
+        }
+    }
+    private void dragExited(DragEvent dragEvent) {
+    }
 
     @Override
     public void invalidated(Observable observable) {
-        setPiece(model.get(index));
+        setPiece(boardState.get(index));
     }
 
     public Piece getPiece() {
@@ -110,9 +115,5 @@ public class BoardTile extends StackPane implements InvalidationListener {
     public void clear() {
         this.piece = null;
         imageView.setImage(null);
-    }
-
-    public ImageView getImageView() {
-        return imageView;
     }
 }

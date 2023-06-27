@@ -13,6 +13,8 @@ public class Main extends Application {
         stage.setTitle("ChessAI v0.1");
         stage.setScene(scene);
         stage.show();
+
+        mainPane.setPrefSize(1000.1, 600.1);
     }
 
     public static void main(String[] args) {
