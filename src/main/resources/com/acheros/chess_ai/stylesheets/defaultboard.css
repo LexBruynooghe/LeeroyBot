@@ -14,10 +14,18 @@
     -fx-background-color: #b48763;
 }
 
-.white .hovered {
-    -fx-background-color: rgba(238, 215, 181, 0.5);
+.hovered.white  {
+    -fx-background-color: #adb088;
 }
 
-.black . hovered {
-    -fx-background-color: rgba(180, 135, 99, 0.5);
+.hovered.black  {
+    -fx-background-color: #84774e;
+}
+
+.dragAndDropSource.black  {
+    -fx-background-color: #636c40;
+}
+
+.dragAndDropSource.white  {
+    -fx-background-color: #809569;
 }

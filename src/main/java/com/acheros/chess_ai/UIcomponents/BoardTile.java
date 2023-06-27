@@ -63,10 +63,11 @@ public class BoardTile extends StackPane implements InvalidationListener {
             Dragboard db = startDragAndDrop(TransferMode.MOVE);
             ClipboardContent cc = new ClipboardContent();
             cc.put(CUSTOM_PIECE, piece);
-            Image image = piece.getImageOfSize(getWidth());
+            Image image = piece.getImageOfSize(getWidth() * 1.2);
             db.setDragView(image);
             db.setDragViewOffsetX(getWidth() / 2);
             db.setDragViewOffsetY(getHeight() / 2);
+            getStyleClass().add("dragAndDropSource");
 
             db.setContent(cc);
             e.consume();
@@ -77,6 +78,7 @@ public class BoardTile extends StackPane implements InvalidationListener {
         if (e.isAccepted()) {
             boardState.set(index, null);
         }
+        getStyleClass().remove("dragAndDropSource");
         e.consume();
     }
 
@@ -90,10 +92,12 @@ public class BoardTile extends StackPane implements InvalidationListener {
 
     private void dragEntered(DragEvent e) {
         if (e.getGestureSource() != this && (piece == null || piece.isWhite() != ((Piece) e.getDragboard().getContent(CUSTOM_PIECE)).isWhite()) && e.getDragboard().hasContent(CUSTOM_PIECE)) {
-
+            getStyleClass().add("hovered");
         }
+        e.consume();
     }
     private void dragExited(DragEvent dragEvent) {
+        getStyleClass().remove("hovered");
     }
 
     @Override
