@@ -1,4 +1,4 @@
-package com.acheros.chess_ai.UIcomponents.pieces;
+package com.acheros.chess_ai.pieces;
 
 public class Rook extends Piece{
     public Rook(boolean white) {

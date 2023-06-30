@@ -1,4 +1,4 @@
-package com.acheros.chess_ai.UIcomponents.pieces;
+package com.acheros.chess_ai.pieces;
 
 import com.acheros.chess_ai.util.PieceUtil;
 import javafx.scene.image.Image;

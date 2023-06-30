@@ -29,3 +29,19 @@
 .dragAndDropSource.white  {
     -fx-background-color: #809569;
 }
+
+.lastMoveSource.white {
+
+}
+
+.lastMoveSource.black {
+
+}
+
+.lastMoveDestination.white {
+
+}
+
+.lastMoveDestination.black {
+
+}

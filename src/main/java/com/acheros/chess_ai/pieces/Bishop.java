@@ -1,4 +1,4 @@
-package com.acheros.chess_ai.UIcomponents.pieces;
+package com.acheros.chess_ai.pieces;
 
 public class Bishop extends Piece{
     public Bishop(boolean white) {

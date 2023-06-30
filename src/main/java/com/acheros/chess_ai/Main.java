@@ -9,12 +9,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         MainPane mainPane = new MainPane();
-        Scene scene = new Scene(mainPane);
-        stage.setTitle("ChessAI v0.1");
+        Scene scene = new Scene(mainPane,1000,600);
+        stage.setTitle("ChessAI userinterface v0.1");
         stage.setScene(scene);
         stage.show();
 
-        mainPane.setPrefSize(1000.1, 600.1);
     }
 
     public static void main(String[] args) {

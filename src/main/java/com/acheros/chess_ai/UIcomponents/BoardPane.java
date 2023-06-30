@@ -1,18 +1,15 @@
-package com.acheros.chess_ai.util;
+package com.acheros.chess_ai.UIcomponents;
 
 import com.acheros.chess_ai.Main;
-import com.acheros.chess_ai.UIcomponents.BoardTile;
-import com.acheros.chess_ai.UIcomponents.pieces.*;
+import com.acheros.chess_ai.pieces.*;
 import com.acheros.chess_ai.models.BoardStateModel;
 import javafx.scene.layout.*;
 
 
-public class MyChessBoardPane extends GridPane {
-
-
+public class BoardPane extends GridPane {
     private final BoardStateModel boardStateModel = new BoardStateModel();
 
-    public MyChessBoardPane() {
+    public BoardPane() {
         // structure
         setGridLinesVisible(false);
 

@@ -1,6 +1,6 @@
 package com.acheros.chess_ai.UIcomponents;
 
-import com.acheros.chess_ai.UIcomponents.pieces.Piece;
+import com.acheros.chess_ai.pieces.Piece;
 import com.acheros.chess_ai.models.BoardStateModel;
 import com.acheros.chess_ai.util.ImageContainer;
 import javafx.beans.InvalidationListener;
@@ -46,8 +46,6 @@ public class BoardTile extends StackPane implements InvalidationListener {
         setOnDragEntered(this::dragEntered);
         setOnDragExited(this::dragExited);
     }
-
-
 
 
     private static final DataFormat CUSTOM_PIECE = new DataFormat("custom/piece");

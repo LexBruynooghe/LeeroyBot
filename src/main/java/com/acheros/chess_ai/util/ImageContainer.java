@@ -9,9 +9,9 @@ public class ImageContainer extends Region {
 
     public ImageContainer() {
         this.imageView = new ImageView();
+        imageView.setSmooth(true);
         getChildren().add(imageView);
     }
-
     @Override
     protected void layoutChildren() {
         double width = getWidth();

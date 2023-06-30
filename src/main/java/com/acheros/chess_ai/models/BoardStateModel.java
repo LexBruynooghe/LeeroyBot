@@ -1,6 +1,6 @@
 package com.acheros.chess_ai.models;
 
-import com.acheros.chess_ai.UIcomponents.pieces.Piece;
+import com.acheros.chess_ai.pieces.Piece;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 

@@ -1,7 +1,7 @@
 package com.acheros.chess_ai.util;
 
 import com.acheros.chess_ai.Main;
-import com.acheros.chess_ai.UIcomponents.pieces.*;
+import com.acheros.chess_ai.pieces.*;
 import javafx.scene.image.Image;
 
 import java.util.Map;
