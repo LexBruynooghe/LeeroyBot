@@ -1,5 +1,7 @@
-.Board {
-    -fx-border-color: red;
+.board {
+    /*-fx-border-color: red;*/
+    /*-fx-border-width: 3px;*/
+    -fx-padding: 5 5 5 5;
 }
 
 .BoardTile {

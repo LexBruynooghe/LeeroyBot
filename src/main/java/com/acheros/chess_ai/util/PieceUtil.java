@@ -25,7 +25,7 @@ public class PieceUtil {
     }
 
     private static Image toImgDefault(String filename) {
-        return new Image(Main.class.getResource("images/" + filename).toExternalForm(), 1000.0, 1000.0, false, true);
+        return new Image(Main.class.getResource("images/" + filename).toExternalForm());
     }
 
     public static Image getImageOfSize(String name, boolean white, double v) {

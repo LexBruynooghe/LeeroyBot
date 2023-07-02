@@ -1,7 +1,8 @@
 
 .sidebar {
-    -fx-border-color: orange;
-    -fx-border-width: 3px;
+    /*-fx-border-color: orange;*/
+    /*-fx-border-width: 3px;*/
+    -fx-padding: 0 5 5 5;
 }
 
 

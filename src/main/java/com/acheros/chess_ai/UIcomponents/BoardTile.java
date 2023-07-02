@@ -57,11 +57,11 @@ public class BoardTile extends StackPane implements InvalidationListener {
     }
 
     private void dragDetected(MouseEvent e) {
-        if (piece != null) {
+        if (piece != null && e.isPrimaryButtonDown()) {
             Dragboard db = startDragAndDrop(TransferMode.MOVE);
             ClipboardContent cc = new ClipboardContent();
             cc.put(CUSTOM_PIECE, piece);
-            Image image = piece.getImageOfSize(getWidth() * 1.2);
+            Image image = piece.getImageOfSize(getWidth());
             db.setDragView(image);
             db.setDragViewOffsetX(getWidth() / 2);
             db.setDragViewOffsetY(getHeight() / 2);
@@ -117,5 +117,9 @@ public class BoardTile extends StackPane implements InvalidationListener {
     public void clear() {
         this.piece = null;
         imageView.setImage(null);
+    }
+
+    public void setShowIndex(boolean b) {
+        indexLabel.setVisible(b);
     }
 }
