@@ -1,8 +1,7 @@
 package com.acheros.chess_ai.UIcomponents;
 
 import com.acheros.chess_ai.Main;
-import com.acheros.chess_ai.pieces.*;
-import com.acheros.chess_ai.models.BoardStateModel;
+import com.acheros.chess_ai.gamelogic.Board;
 import javafx.scene.layout.*;
 
 import java.util.ArrayList;
@@ -10,11 +9,12 @@ import java.util.List;
 
 
 public class BoardPane extends GridPane {
-    private final BoardStateModel boardStateModel = new BoardStateModel();
-
+    private final Board board;
     private final List<BoardTile> tiles = new ArrayList<>();
 
-    public BoardPane() {
+    public BoardPane(Board board) {
+        this.board = board;
+
         // structure
         setGridLinesVisible(false);
 
@@ -37,18 +37,11 @@ public class BoardPane extends GridPane {
         // adding tiles
         for (int r = 0; r < 8; r++) {
             for (int c = 0; c < 8; c++) {
-                BoardTile boardTile = new BoardTile((r + c) % 2 == 0, 63 - r * 8 - (7 - c),boardStateModel);
+                BoardTile boardTile = new BoardTile((r + c) % 2 == 0, 63 - r * 8 - (7 - c), board);
                 tiles.add(boardTile);
                 add(boardTile, c, r);
             }
         }
-
-        boardStateModel.set(5, new Queen(true));
-        boardStateModel.set(9, new Bishop(false));
-        boardStateModel.set(54, new Knight(false));
-        boardStateModel.set(36, new Pawn(true));
-        boardStateModel.set(15, new Rook(false));
-        boardStateModel.set(56, new King(true));
     }
 
     public void setShowIndex(boolean b) {

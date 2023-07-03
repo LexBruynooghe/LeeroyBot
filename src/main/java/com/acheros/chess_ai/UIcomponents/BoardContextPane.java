@@ -1,6 +1,7 @@
 package com.acheros.chess_ai.UIcomponents;
 
 import com.acheros.chess_ai.Main;
+import com.acheros.chess_ai.gamelogic.Boardstate;
 import com.acheros.chess_ai.util.BoardContainer;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -11,12 +12,12 @@ public class BoardContextPane extends BorderPane {
 
     private final Dialog<Void> settingsDialog;
     private final BoardPane board;
-    public BoardContextPane() {
+    public BoardContextPane(Boardstate boardstate) {
         getStylesheets().add(Main.class.getResource("stylesheets/boardcontext.css").toExternalForm());
 
         settingsDialog = new SettingsDialog();
 
-        board = new BoardPane();
+        board = new BoardPane(boardstate.getBoard());
 
         Sidebar sidebar = new Sidebar();
 

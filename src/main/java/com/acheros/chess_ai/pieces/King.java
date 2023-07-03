@@ -19,4 +19,9 @@ public class King extends Piece{
     public String getName() {
         return "king";
     }
+
+    @Override
+    public boolean isKing() {
+        return true;
+    }
 }

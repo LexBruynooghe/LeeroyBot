@@ -19,4 +19,9 @@ public class Queen extends Piece {
     public String getName() {
         return "queen";
     }
+
+    @Override
+    public boolean isQueen() {
+        return true;
+    }
 }

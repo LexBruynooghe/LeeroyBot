@@ -19,4 +19,9 @@ public class Rook extends Piece{
     public String getNotation() {
         return "R";
     }
+
+    @Override
+    public boolean isRook() {
+        return true;
+    }
 }

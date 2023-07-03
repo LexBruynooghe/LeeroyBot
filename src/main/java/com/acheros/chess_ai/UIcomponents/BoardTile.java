@@ -1,7 +1,8 @@
 package com.acheros.chess_ai.UIcomponents;
 
+import com.acheros.chess_ai.gamelogic.Board;
+import com.acheros.chess_ai.gamelogic.Boardstate;
 import com.acheros.chess_ai.pieces.Piece;
-import com.acheros.chess_ai.models.BoardStateModel;
 import com.acheros.chess_ai.util.ImageContainer;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -17,11 +18,11 @@ public class BoardTile extends StackPane implements InvalidationListener {
 
     private Piece piece;
     private final ImageContainer imageView;
-    private final BoardStateModel boardState;
+    private final Board boardState;
     private final int index;
     private final Label indexLabel;
 
-    public BoardTile(boolean white, int index, BoardStateModel model) {
+    public BoardTile(boolean white, int index, Board model) {
 
         getStyleClass().addAll("BoardTile", white ? "white" : "black");
 
@@ -29,6 +30,7 @@ public class BoardTile extends StackPane implements InvalidationListener {
 
         this.boardState = model;
         boardState.addListener(this);
+        setPiece(boardState.get(index));
 
         this.index = index;
 

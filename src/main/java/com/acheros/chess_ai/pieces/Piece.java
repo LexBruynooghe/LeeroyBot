@@ -30,4 +30,23 @@ public abstract class Piece implements Serializable {
     public Image getImageOfSize(double v) {
         return PieceUtil.getImageOfSize(getName(), white, v);
     }
+
+    public boolean isKing() {
+        return false;
+    }
+    public boolean isQueen() {
+        return false;
+    }
+    public boolean isRook() {
+        return false;
+    }
+    public boolean isBishop() {
+        return false;
+    }
+    public boolean isKnight() {
+        return false;
+    }
+    public boolean isPawn() {
+        return true;
+    }
 }

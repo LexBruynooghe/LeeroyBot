@@ -19,4 +19,9 @@ public class Knight extends Piece{
     public String getNotation() {
         return "N";
     }
+
+    @Override
+    public boolean isKnight() {
+        return true;
+    }
 }

@@ -19,4 +19,9 @@ public class Bishop extends Piece{
     public String getNotation() {
         return "B";
     }
+
+    @Override
+    public boolean isBishop() {
+        return true;
+    }
 }

@@ -19,4 +19,9 @@ public class Pawn extends Piece {
     public String getNotation() {
         return "";
     }
+
+    @Override
+    public boolean isPawn() {
+        return true;
+    }
 }
