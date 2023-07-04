@@ -20,7 +20,15 @@
     -fx-background-color: #adb088;
 }
 
+.white > .legal-move-circle {
+    -fx-fill: #adb088;
+}
+
 .hovered.black  {
+    -fx-background-color: #84774e;
+}
+
+.black > .legal-move-circle {
     -fx-background-color: #84774e;
 }
 
@@ -33,17 +41,19 @@
 }
 
 .lastMoveSource.white {
-
+    -fx-background-color: #cbd06a;
 }
 
 .lastMoveSource.black {
-
+    -fx-background-color: #a9a13b;
 }
 
 .lastMoveDestination.white {
-
+    -fx-background-color: #cbd06a;
 }
 
 .lastMoveDestination.black {
-
+    -fx-background-color: #a9a13b;
 }
+
+

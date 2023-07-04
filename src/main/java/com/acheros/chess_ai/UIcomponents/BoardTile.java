@@ -1,6 +1,5 @@
 package com.acheros.chess_ai.UIcomponents;
 
-import com.acheros.chess_ai.gamelogic.Board;
 import com.acheros.chess_ai.gamelogic.Boardstate;
 import com.acheros.chess_ai.pieces.Piece;
 import com.acheros.chess_ai.util.ImageContainer;
@@ -18,19 +17,19 @@ public class BoardTile extends StackPane implements InvalidationListener {
 
     private Piece piece;
     private final ImageContainer imageView;
-    private final Board boardState;
+    private final Boardstate boardState;
     private final int index;
     private final Label indexLabel;
 
-    public BoardTile(boolean white, int index, Board model) {
+    public BoardTile(boolean white, int index, Boardstate model) {
 
         getStyleClass().addAll("BoardTile", white ? "white" : "black");
 
         imageView = new ImageContainer();
 
         this.boardState = model;
-        boardState.addListener(this);
-        setPiece(boardState.get(index));
+        boardState.getBoard().addListener(this);
+        setPiece(boardState.getBoard().get(index));
 
         this.index = index;
 
@@ -38,6 +37,7 @@ public class BoardTile extends StackPane implements InvalidationListener {
         indexLabel.setTextFill(Color.MAGENTA);
         widthProperty().addListener(observable -> indexLabel.setFont(Font.font( "Verdana",FontWeight.SEMI_BOLD,getWidth() / 2)));
         indexLabel.setVisible(false);
+
 
         getChildren().addAll(imageView, indexLabel);
 
@@ -48,12 +48,35 @@ public class BoardTile extends StackPane implements InvalidationListener {
         setOnDragEntered(this::dragEntered);
         setOnDragExited(this::dragExited);
     }
+    @Override
+    public void invalidated(Observable observable) {
+        setPiece(boardState.getBoard().get(index));
+    }
 
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Piece piece) {
+        if (this.piece != piece) {
+            this.piece = piece;
+            imageView.setImage(piece == null ? null : piece.getImage());
+        }
+    }
+
+    public void clear() {
+        this.piece = null;
+        imageView.setImage(null);
+    }
+
+    public void setShowIndex(boolean b) {
+        indexLabel.setVisible(b);
+    }
 
     private static final DataFormat CUSTOM_PIECE = new DataFormat("custom/piece");
 
     private void dragDropped(DragEvent e) {
-        boardState.set(index,(Piece) e.getDragboard().getContent(CUSTOM_PIECE));
+        boardState.getBoard().set(index,(Piece) e.getDragboard().getContent(CUSTOM_PIECE));
         e.setDropCompleted(true);
         e.consume();
     }
@@ -76,7 +99,7 @@ public class BoardTile extends StackPane implements InvalidationListener {
 
     private void dragDone(DragEvent e) {
         if (e.isAccepted()) {
-            boardState.set(index, null);
+            boardState.getBoard().set(index, null);
         }
         getStyleClass().remove("dragAndDropSource");
         e.consume();
@@ -100,28 +123,5 @@ public class BoardTile extends StackPane implements InvalidationListener {
         getStyleClass().remove("hovered");
     }
 
-    @Override
-    public void invalidated(Observable observable) {
-        setPiece(boardState.get(index));
-    }
 
-    public Piece getPiece() {
-        return piece;
-    }
-
-    public void setPiece(Piece piece) {
-        if (this.piece != piece) {
-            this.piece = piece;
-            imageView.setImage(piece == null ? null : piece.getImage());
-        }
-    }
-
-    public void clear() {
-        this.piece = null;
-        imageView.setImage(null);
-    }
-
-    public void setShowIndex(boolean b) {
-        indexLabel.setVisible(b);
-    }
 }

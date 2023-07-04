@@ -1,19 +1,26 @@
 package com.acheros.chess_ai.UIcomponents;
 
 import com.acheros.chess_ai.Main;
-import com.acheros.chess_ai.gamelogic.Board;
+import com.acheros.chess_ai.MoveGenerators.LegalMoveGenerator;
+import com.acheros.chess_ai.MoveGenerators.MyLegalMoveGenerator;
+import com.acheros.chess_ai.gamelogic.Boardstate;
+import com.acheros.chess_ai.gamelogic.Move;
 import javafx.scene.layout.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class BoardPane extends GridPane {
-    private final Board board;
+    private final Boardstate boardstate;
     private final List<BoardTile> tiles = new ArrayList<>();
+    private Set<Move> moves;
+    private static final LegalMoveGenerator moveGenerator = new MyLegalMoveGenerator();
 
-    public BoardPane(Board board) {
-        this.board = board;
+    public BoardPane(Boardstate boardState) {
+        this.boardstate = boardState;
+        moves = moveGenerator.generateMoves(boardstate);
 
         // structure
         setGridLinesVisible(false);
@@ -37,7 +44,7 @@ public class BoardPane extends GridPane {
         // adding tiles
         for (int r = 0; r < 8; r++) {
             for (int c = 0; c < 8; c++) {
-                BoardTile boardTile = new BoardTile((r + c) % 2 == 0, 63 - r * 8 - (7 - c), board);
+                BoardTile boardTile = new BoardTile((r + c) % 2 == 0, 63 - r * 8 - (7 - c), boardstate);
                 tiles.add(boardTile);
                 add(boardTile, c, r);
             }

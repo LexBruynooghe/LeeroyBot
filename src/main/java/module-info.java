@@ -10,4 +10,5 @@ module com.acheros.chess_ai {
     opens com.acheros.chess_ai.UIcomponents to javafx.fxml;
     exports com.acheros.chess_ai.pieces;
     opens com.acheros.chess_ai.pieces to javafx.fxml;
+    exports com.acheros.chess_ai.MoveGenerators;
 }

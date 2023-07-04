@@ -1,7 +1,12 @@
 package com.acheros.chess_ai.UIcomponents;
 
+import com.acheros.chess_ai.MoveGenerators.LegalMoveGenerator;
+import com.acheros.chess_ai.MoveGenerators.MyLegalMoveGenerator;
 import com.acheros.chess_ai.gamelogic.Boardstate;
+import com.acheros.chess_ai.gamelogic.Move;
 import javafx.scene.layout.BorderPane;
+
+import java.util.Set;
 
 public class MainPane extends BorderPane {
 

@@ -17,7 +17,7 @@ public class BoardContextPane extends BorderPane {
 
         settingsDialog = new SettingsDialog();
 
-        board = new BoardPane(boardstate.getBoard());
+        board = new BoardPane(boardstate);
 
         Sidebar sidebar = new Sidebar();
 
