@@ -1,5 +1,6 @@
 package com.acheros.chess_ai.pieces;
 
+import com.acheros.chess_ai.gamelogic.Move;
 import com.acheros.chess_ai.util.PieceUtil;
 import javafx.scene.image.Image;
 
@@ -31,6 +32,8 @@ public abstract class Piece implements Serializable {
         return PieceUtil.getImageOfSize(getName(), white, v);
     }
 
+    public boolean isWithinMoveSet(Move move){return false;}
+
     public boolean isKing() {
         return false;
     }
@@ -47,6 +50,6 @@ public abstract class Piece implements Serializable {
         return false;
     }
     public boolean isPawn() {
-        return true;
+        return false;
     }
 }

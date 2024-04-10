@@ -1,5 +1,7 @@
 package com.acheros.chess_ai.pieces;
 
+import com.acheros.chess_ai.gamelogic.Move;
+
 public class Bishop extends Piece{
     public Bishop(boolean white) {
         super(white);
@@ -23,5 +25,13 @@ public class Bishop extends Piece{
     @Override
     public boolean isBishop() {
         return true;
+    }
+
+    @Override
+    public boolean isWithinMoveSet(Move move) {
+        int rowDiff = Math.abs(move.start() / 8 - move.target() / 8);
+        int colDiff = Math.abs(move.start() % 8 - move.target() % 8);
+
+        return rowDiff == colDiff;
     }
 }

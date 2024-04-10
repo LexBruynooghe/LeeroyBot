@@ -1,6 +1,7 @@
 package com.acheros.chess_ai.UIcomponents;
 
 import com.acheros.chess_ai.Main;
+import com.acheros.chess_ai.MoveGenerators.BruteForce1;
 import com.acheros.chess_ai.MoveGenerators.LegalMoveGenerator;
 import com.acheros.chess_ai.MoveGenerators.MyLegalMoveGenerator;
 import com.acheros.chess_ai.gamelogic.Boardstate;
@@ -16,7 +17,7 @@ public class BoardPane extends GridPane {
     private final Boardstate boardstate;
     private final List<BoardTile> tiles = new ArrayList<>();
     private Set<Move> moves;
-    private static final LegalMoveGenerator moveGenerator = new MyLegalMoveGenerator();
+    private static final LegalMoveGenerator moveGenerator = new BruteForce1();
 
     public BoardPane(Boardstate boardState) {
         this.boardstate = boardState;
