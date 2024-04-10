@@ -24,7 +24,6 @@ public class BoardPane extends GridPane {
 
         // structure
         setGridLinesVisible(false);
-
         // sizing; keeps the board square
         for (int i = 0; i < 8; i++) {
             ColumnConstraints colConstraint = new ColumnConstraints();
