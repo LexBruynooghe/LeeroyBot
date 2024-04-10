@@ -13,7 +13,6 @@ public class Main extends Application {
         stage.setTitle("ChessAI userinterface v0.1");
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main(String[] args) {
