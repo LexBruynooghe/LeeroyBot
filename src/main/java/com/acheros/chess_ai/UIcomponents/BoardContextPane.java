@@ -13,7 +13,7 @@ public class BoardContextPane extends BorderPane {
     private final Dialog<Void> settingsDialog;
     private final BoardPane board;
     public BoardContextPane(Boardstate boardstate) {
-        getStylesheets().add(Main.class.getResource("stylesheets/boardcontext.css").toExternalForm());
+        getStylesheets().add("com/acheros/chess_ai/stylesheets/boardcontext.css");
 
         settingsDialog = new SettingsDialog();
 
