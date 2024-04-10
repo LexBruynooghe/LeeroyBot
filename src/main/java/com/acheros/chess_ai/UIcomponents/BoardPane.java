@@ -22,6 +22,7 @@ public class BoardPane extends GridPane {
         this.boardstate = boardState;
         moves = moveGenerator.generateMoves(boardstate);
 
+
         // structure
         setGridLinesVisible(false);
 
